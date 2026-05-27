@@ -11,6 +11,12 @@
             gap: 10px;
             justify-content: center;
         }
+        nav{
+            text-align: end;
+        }
+        h1{
+            text-align: center;
+        }
 
         h2 {
             text-align: center;
@@ -144,6 +150,19 @@
 
         </div>
     </section>
+    <script>
+    let buttons = document.querySelectorAll("button");
+
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+
+            let product =
+                this.parentElement.children[1].innerText;
+
+            alert(product + " added successfully!");
+        });
+    });
+</script>
 </body>
 
 </html>
