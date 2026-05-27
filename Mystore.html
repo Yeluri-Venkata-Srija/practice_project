@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .Product {
+            border: 1px solid gray;
+            margin: 10px;
+            padding: 10px;
+            background-color: bisque;
+            transition: all 0.3s ease;
+            animation: float 3s infinite ease-in-out;
+
+
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+       
+       
+
+        .Product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        button {
+            margin-top: 8px;
+            padding: 6px 10px;
+            background-color: rgb(247, 244, 241);
+            color: black;
+            border: none;
+            border-radius: 5px;
+        }
+
+       
+
+        .Product:hover {
+            transform: scale(1.03);
+        }
+
+
+        @media(max-width: 600px) {
+            .container {
+                flex-direction: column;
+                margin: 10px;
+                padding: 5px;
+                border-width: 2px;
+                border-style: solid;
+                border-color: aquamarine;
+
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Store</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section>
+        <h2>Electronics</h2>
+        <div class="container">
+            <div class="Product">
+                <img src="images/mobile.jfif" alt="Mobile">
+                <p>Mobile</p>
+                <p>12000</p>
+                <button>BUY NOW</button>
+            </div>
+            <div class="Product">
+                <img src="images/laptop.jfif" alt="Laptop">
+                <p>laptop</p>
+                <p>40000</p>
+                <button>BUY NOW</button>
+            </div>
+
+
+
+        </div>
+        <h2>Groceries</h2>
+        <div class="container">
+            <div class="Product">
+                <img src="images/rice.jfif" alt="Rice">
+                <p>rice</p>
+                <p>1200</p>
+                <button>BUY NOW</button>
+            </div>
+            <div class="Product">
+                <img src="images/onions.jfif" alt="Onions">
+                <p>onions</p>
+                <p>20</p>
+                <button>BUY NOW</button>
+            </div>
+        </div>
+        <h2>Others</h2>
+        <div class="container">
+            <div class="Product">
+                <img src="images/soap.jfif" alt="soap">
+                <p>soap</p>
+                <p>10</p>
+                <button>BUY NOW</button>
+            </div>
+            <div class="Product">
+                <img src="images/pen.jfif" alt="pen">
+
+                <p>pen</p>
+                <p>3</p>
+                <button>BUY NOW</button>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>
