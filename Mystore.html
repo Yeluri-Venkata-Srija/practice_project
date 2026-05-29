@@ -114,6 +114,10 @@
         <a href="#">Products</a>
         <a href="#">Contact</a>
     </nav>
+
+    <h3>🛒 Cart: <span id="cart-count">0</span></h3>
+    <h4>Total: ₹<span id="total">0</span></h4>
+    <ul id="cart-list"></ul>
     <section>
         <h2>Electronics</h2>
         <div class="container">
@@ -167,21 +171,48 @@
         </div>
     </section>
     <script>
-
         let cart = [];
-        let buttons = document.querySelectorAll("button");
+let total = 0;
 
-        buttons.forEach(function (btn) {
-            btn.addEventListener("click", function () {
+let buttons = document.querySelectorAll("button");
+let cartCount = document.getElementById("cart-count");
+let cartList = document.getElementById("cart-list");
+let totalDisplay = document.getElementById("total");
 
-                let product = this.parentElement;
-                let name = product.children[1].innerText;
+buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
 
-                cart.push(name);
+        let product = this.parentElement;
+        let name = product.children[1].innerText;
+        let price = Number(product.children[2].innerText);
 
-                console.log(cart);
-            });
+        cart.push({ name, price });
+        total += price;
+
+        // Update UI
+        cartCount.innerText = cart.length;
+        totalDisplay.innerText = total;
+
+        let li = document.createElement("li");
+        li.innerText = name + " - ₹" + price;
+
+        // Remove button
+        let removeBtn = document.createElement("button");
+        removeBtn.innerText = "❌";
+        removeBtn.style.marginLeft = "10px";
+
+        removeBtn.addEventListener("click", function () {
+            li.remove();
+            cartCount.innerText--;
+
+            total -= price;
+            totalDisplay.innerText = total;
         });
+
+        li.appendChild(removeBtn);
+        cartList.appendChild(li);
+    });
+});
     </script>
 </body>
 
